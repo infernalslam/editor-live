@@ -10,7 +10,11 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
+    proxyTable: {
+      '/files': 'http://127.0.0.1:1112',
+      '/ls': 'http://127.0.0.1:1112',
+      '/socket.io': {target:'ws://127.0.0.1:1112', ws:true}
+    },
 
     // Various Dev Server settings
     host: 'localhost', // can be overwritten by process.env.HOST

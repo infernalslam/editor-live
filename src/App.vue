@@ -9,6 +9,7 @@
 const io = require('socket.io-client/dist/socket.io')
 const socket = io.connect()
 console.log(socket)
+console.log('testxcx')
 export default {
   name: 'App'
 }
