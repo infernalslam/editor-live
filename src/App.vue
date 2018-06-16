@@ -1,7 +1,13 @@
 <template>
-  <div id="app">
-    <img src="./assets/logo.png">
-    <router-view/>
+  <div>
+    <div class="columns  is-mobile is-multiline is-gapless">
+      <div class="column is-2">
+        menu
+      </div>
+      <div class="column">
+        live code
+      </div>
+    </div>
   </div>
 </template>
 
@@ -16,12 +22,12 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+.is-sidebar-menu {
+  padding: 2.5rem;
+  background-color: red;
 }
+.is-sidebar-menu > li > a {
+  color: yellow;
+}
+
 </style>
