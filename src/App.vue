@@ -7,7 +7,7 @@
 
 <script>
 const io = require('socket.io-client/dist/socket.io')
-const socket = io.connect('http://localhost:3000')
+const socket = io.connect()
 console.log(socket)
 export default {
   name: 'App'
