@@ -17,7 +17,25 @@ const socket = io.connect()
 console.log(socket)
 console.log('testxcx')
 export default {
-  name: 'App'
+  name: 'App',
+  data () {
+    return {
+      list: {
+        name: 'Root',
+        path: '/',
+        children: []
+      }
+    }
+  },
+  mounted () {
+    socket.on('list', (list) => {
+      if (list.name.lastIndexOf('\\') !== -1) {
+        list.name = list.name.substring(list.name.lastIndexOf('\\') + 1, list.name.length)
+      }
+      this.list = list
+      console.log(this.list)
+    })
+  }
 }
 </script>
 

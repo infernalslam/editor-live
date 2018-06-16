@@ -3,6 +3,7 @@ const app = express()
 const http = require('http').Server(app)
 const io = require('socket.io')(http)
 const path = require('path')
+const util = require('./util/index')
 
 
 
@@ -27,15 +28,14 @@ app.use('/files', express.static('.', {
 
 
 // set socket io
+let data = {}
+data.ls = util.getDirJson('.')
+data.list = util.getDirList('.')
 
-// io.on('connection', function (socket) {
-//   io.emit('list', socket)
-//   console.log('testtet')
-// })
-
-io.on('connection', function(socket){
-  console.log('a user connected')
+io.on('connection', function (socket) {
+  io.emit('list', data.ls)
 })
+
 
 http.listen(1112, function () {
   console.log('Hit CTRL-C to stop the server')
